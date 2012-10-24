@@ -34,6 +34,8 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+static NSTimeInterval const kDefaultAnimationDurration = 0.2f;
+
 @interface WBNoticeView ()
 
 @property (nonatomic,strong) UIView *gradientView;
@@ -59,7 +61,7 @@
                       duration:(NSTimeInterval)duration
                 dismissedBlock:(WBNoticeViewDismissedBlock)dismissedBlock
 {
-    return [self noticeOfType:noticeType inView:view title:title message:message duration:duration delay:0.0f alpha:0.0f originY:0.0f dismissedBlock:dismissedBlock];
+    return [self noticeOfType:noticeType inView:view title:title message:message duration:duration alpha:0.0f originY:0.0f dismissedBlock:dismissedBlock];
 }
 
 + (WBNoticeView *)noticeOfType:(WBNoticeType)noticeType
@@ -67,7 +69,6 @@
                    title:(NSString *)title
                  message:(NSString *)message
                 duration:(NSTimeInterval)duration
-                   delay:(NSTimeInterval)delay
                    alpha:(CGFloat)alpha
                  originY:(CGFloat)originY
                 dismissedBlock:(WBNoticeViewDismissedBlock)dismissedBlock
@@ -76,8 +77,8 @@
     
     retVal.title = title;
     retVal.message = message;
-    retVal.duration = duration;
-    retVal.delay = delay;
+    retVal.duration = 0.0f;
+    retVal.delay = duration;
     retVal.alpha = alpha;
     retVal.originY = originY;
     retVal.dismissedBlock = dismissedBlock;
@@ -87,16 +88,19 @@
             retVal.sticky = NO;
             retVal.noticeIconImageName = @"notice_error_icon.png";
             retVal.gradientViewClass = WBRedGradientView.class;
+            retVal.messageColor = [UIColor colorWithRed:239.0/255.0 green:167.0/255.0 blue:163.0/255.0 alpha:1.0];
             break;
         case WBNoticeTypeSuccess:
             retVal.sticky = NO;
             retVal.noticeIconImageName = @"notice_success_icon.png";
             retVal.gradientViewClass = WBBlueGradientView.class;
+            retVal.messageColor = [UIColor whiteColor];
             break;
         case WBNoticeTypeSticky:
             retVal.sticky = YES;
             retVal.noticeIconImageName = @"up.png";
             retVal.gradientViewClass = WBGrayGradientView.class;
+            retVal.messageColor = [UIColor whiteColor];
             break;
     }
 
@@ -140,7 +144,7 @@
         // Set default values if needed
         NSString *title = self.title ?: @"";
         NSString *message = self.message ?: @"";
-        NSTimeInterval duration = self.duration == 0.0f ? 0.5 : self.duration;
+        NSTimeInterval duration = self.duration == 0.0f ? kDefaultAnimationDurration : self.duration;
         CGFloat alpha = self.alpha == 0.0f ? 0.8 : self.alpha;
         CGFloat originY = self.originY < 0.0f ? 0.0 : self.originY;
         NSTimeInterval delay = self.sticky ? 0.0f : self.delay == 0.0f ? 2.0f : self.delay;
@@ -166,7 +170,7 @@
         // Make the message label
         self.messageLabel = [[UILabel alloc]initWithFrame:CGRectMake(55.0, 20.0 + 10.0, viewWidth - 70.0, 12.0)];
         self.messageLabel.font = [UIFont systemFontOfSize:13.0];
-        self.messageLabel.textColor = [UIColor colorWithRed:239.0/255.0 green:167.0/255.0 blue:163.0/255.0 alpha:1.0];
+        self.messageLabel.textColor = self.messageColor;
         self.messageLabel.backgroundColor = [UIColor clearColor];
         self.messageLabel.text = message;
         
@@ -263,7 +267,7 @@ static NSMutableSet *_notices = nil;
     }
 }
 
-- (void)displayNoticeWithDuration:(CGFloat)duration delay:(CGFloat)delay originY:(CGFloat)originY hiddenYOrigin:(CGFloat)hiddenYOrigin alpha:(CGFloat)alpha
+- (void)displayNoticeWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay originY:(CGFloat)originY hiddenYOrigin:(CGFloat)hiddenYOrigin alpha:(CGFloat)alpha
 {
     // If the notice is sticky, add tap capabilities
     if (self.sticky) {

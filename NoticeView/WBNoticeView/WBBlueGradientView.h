@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 Webbo, LLC. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "WBGradientView.h"
 
-@interface WBBlueGradientView : UIView
+@interface WBBlueGradientView : WBGradientView
 
 @end

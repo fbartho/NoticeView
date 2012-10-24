@@ -49,6 +49,7 @@ typedef void (^WBNoticeViewDismissedBlock)(BOOL userDismissed);
 @property (nonatomic,assign) CGFloat alpha; // default: 1.0
 @property (nonatomic,assign) CGFloat originY; // default: 0.0
 @property (nonatomic,assign) BOOL sticky; // default NO (Error and Success notice); YES (Sticky notice)
+@property (nonatomic,strong) UIColor *messageColor;
 @property (nonatomic,copy) WBNoticeViewDismissedBlock dismissedBlock;
 
 
@@ -66,7 +67,6 @@ typedef void (^WBNoticeViewDismissedBlock)(BOOL userDismissed);
                          title:(NSString *)title
                        message:(NSString *)message
                       duration:(NSTimeInterval)duration
-                         delay:(NSTimeInterval)delay
                          alpha:(CGFloat)alpha
                        originY:(CGFloat)originY
                 dismissedBlock:(WBNoticeViewDismissedBlock)dismissedBlock;
