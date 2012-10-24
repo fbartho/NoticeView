@@ -22,10 +22,7 @@
 		59A782461562F5F80001F08D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59A782441562F5F70001F08D /* MainStoryboard.storyboard */; };
 		59A782491562F5F80001F08D /* WBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A782481562F5F80001F08D /* WBViewController.m */; };
 		59A782591562F8750001F08D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A782581562F8750001F08D /* QuartzCore.framework */; };
-		746CBD001570A1D100B844B1 /* WBErrorNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 746CBCFF1570A1D100B844B1 /* WBErrorNoticeView.m */; };
-		746CBD081570A8FA00B844B1 /* WBSuccessNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 746CBD071570A8FA00B844B1 /* WBSuccessNoticeView.m */; };
 		748A6A59157D0B74003C7655 /* WBGrayGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 748A6A58157D0B74003C7655 /* WBGrayGradientView.m */; };
-		748A6A5D157D0D06003C7655 /* WBStickyNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 748A6A5C157D0D06003C7655 /* WBStickyNoticeView.m */; };
 		7492FA45157C8CD700FB834C /* WBBlueGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7492FA42157C8CD700FB834C /* WBBlueGradientView.m */; };
 		7492FA46157C8CD700FB834C /* WBRedGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7492FA44157C8CD700FB834C /* WBRedGradientView.m */; };
 /* End PBXBuildFile section */
@@ -53,15 +50,8 @@
 		59A782471562F5F80001F08D /* WBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBViewController.h; sourceTree = "<group>"; };
 		59A782481562F5F80001F08D /* WBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBViewController.m; sourceTree = "<group>"; };
 		59A782581562F8750001F08D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		746CBCFE1570A1D100B844B1 /* WBErrorNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBErrorNoticeView.h; sourceTree = "<group>"; };
-		746CBCFF1570A1D100B844B1 /* WBErrorNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBErrorNoticeView.m; sourceTree = "<group>"; };
-		746CBD011570A65D00B844B1 /* WBNoticeView_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBNoticeView_Private.h; sourceTree = "<group>"; };
-		746CBD061570A8FA00B844B1 /* WBSuccessNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSuccessNoticeView.h; sourceTree = "<group>"; };
-		746CBD071570A8FA00B844B1 /* WBSuccessNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBSuccessNoticeView.m; sourceTree = "<group>"; };
 		748A6A57157D0B74003C7655 /* WBGrayGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBGrayGradientView.h; sourceTree = "<group>"; };
 		748A6A58157D0B74003C7655 /* WBGrayGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBGrayGradientView.m; sourceTree = "<group>"; };
-		748A6A5B157D0D06003C7655 /* WBStickyNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStickyNoticeView.h; sourceTree = "<group>"; };
-		748A6A5C157D0D06003C7655 /* WBStickyNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStickyNoticeView.m; sourceTree = "<group>"; };
 		7492FA41157C8CD700FB834C /* WBBlueGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBBlueGradientView.h; sourceTree = "<group>"; };
 		7492FA42157C8CD700FB834C /* WBBlueGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBBlueGradientView.m; sourceTree = "<group>"; };
 		7492FA43157C8CD700FB834C /* WBRedGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBRedGradientView.h; sourceTree = "<group>"; };
@@ -96,12 +86,8 @@
 		592BDDE315645BEE00B78820 /* WBNoticeView */ = {
 			isa = PBXGroup;
 			children = (
-				746CBCFE1570A1D100B844B1 /* WBErrorNoticeView.h */,
-				746CBCFF1570A1D100B844B1 /* WBErrorNoticeView.m */,
-				746CBD061570A8FA00B844B1 /* WBSuccessNoticeView.h */,
-				746CBD071570A8FA00B844B1 /* WBSuccessNoticeView.m */,
-				748A6A5B157D0D06003C7655 /* WBStickyNoticeView.h */,
-				748A6A5C157D0D06003C7655 /* WBStickyNoticeView.m */,
+				592BDDE715645BEE00B78820 /* WBNoticeView.h */,
+				592BDDE815645BEE00B78820 /* WBNoticeView.m */,
 				746CBD051570A88800B844B1 /* Private */,
 			);
 			path = WBNoticeView;
@@ -164,9 +150,6 @@
 		746CBD051570A88800B844B1 /* Private */ = {
 			isa = PBXGroup;
 			children = (
-				592BDDE715645BEE00B78820 /* WBNoticeView.h */,
-				592BDDE815645BEE00B78820 /* WBNoticeView.m */,
-				746CBD011570A65D00B844B1 /* WBNoticeView_Private.h */,
 				592BDDE415645BEE00B78820 /* NoticeView.bundle */,
 				592BDDE515645BEE00B78820 /* UILabel+WBExtensions.h */,
 				592BDDE615645BEE00B78820 /* UILabel+WBExtensions.m */,
@@ -253,12 +236,9 @@
 				59A782491562F5F80001F08D /* WBViewController.m in Sources */,
 				592BDDEC15645BEE00B78820 /* UILabel+WBExtensions.m in Sources */,
 				592BDDED15645BEE00B78820 /* WBNoticeView.m in Sources */,
-				746CBD001570A1D100B844B1 /* WBErrorNoticeView.m in Sources */,
-				746CBD081570A8FA00B844B1 /* WBSuccessNoticeView.m in Sources */,
 				7492FA45157C8CD700FB834C /* WBBlueGradientView.m in Sources */,
 				7492FA46157C8CD700FB834C /* WBRedGradientView.m in Sources */,
 				748A6A59157D0B74003C7655 /* WBGrayGradientView.m in Sources */,
-				748A6A5D157D0D06003C7655 /* WBStickyNoticeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

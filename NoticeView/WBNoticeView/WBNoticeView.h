@@ -2,8 +2,28 @@
 //  WBNoticeView.h
 //  NoticeView
 //
+//  Heavily modified by Levi Brown on Oct 4, 2012
+//
 //  Created by Tito Ciuro on 5/16/12.
 //  Copyright (c) 2012 Tito Ciuro. All rights reserved.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE
 //
 
 #import <Foundation/Foundation.h>
@@ -11,73 +31,47 @@
 @interface WBNoticeView : NSObject
 
 typedef enum {
-    WBNoticeViewTypeError = 0,
-    WBNoticeViewTypeSuccess,
-    WBNoticeViewTypeSticky
-} WBNoticeViewType;
+    WBNoticeTypeError = 0,
+    WBNoticeTypeSuccess,
+    WBNoticeTypeSticky
+} WBNoticeType;
 
-typedef void (^WBNoticeViewDismissedBlock)(void);
+typedef void (^WBNoticeViewDismissedBlock)(BOOL userDismissed);
 
-@property (nonatomic, readwrite) WBNoticeViewType noticeType;
+@property (nonatomic) WBNoticeType noticeType;
 
-@property (nonatomic, strong) UIView *view;
-@property (nonatomic, strong) NSString *title; // default: @"Unknown Error"
+@property (nonatomic,strong) UIView *view;
+@property (nonatomic,copy) NSString *title; // default: @""
+@property (nonatomic,copy) NSString *message; // default: @""
 
-@property (nonatomic, readwrite) CGFloat duration; // default: 0.5
-@property (nonatomic, readwrite) CGFloat delay; // default: 2.0
-@property (nonatomic, readwrite) CGFloat alpha; // default: 1.0
-@property (nonatomic, readwrite) CGFloat originY; // default: 0.0
-@property (nonatomic, readwrite, getter = isSticky) BOOL sticky; // default NO (Error and Success notice); YES (Sticky notice)
-@property (nonatomic, readwrite, strong) WBNoticeViewDismissedBlock dismissedBlock;
+@property (nonatomic,assign) CGFloat duration; // default: 0.5
+@property (nonatomic,assign) CGFloat delay; // default: 2.0
+@property (nonatomic,assign) CGFloat alpha; // default: 1.0
+@property (nonatomic,assign) CGFloat originY; // default: 0.0
+@property (nonatomic,assign) BOOL sticky; // default NO (Error and Success notice); YES (Sticky notice)
+@property (nonatomic,copy) WBNoticeViewDismissedBlock dismissedBlock;
 
 
-+ (WBNoticeView *)defaultManager;
-
-- (id)initWithView:(UIView *)theView title:(NSString *)theTitle; // throws NSInvalidArgumentException is view is nil.
-
-- (void)show; // Must be implemented in the subclasses, or else it'll raise an exception. 
-
-- (void)dismissNotice; // Only succeeds if the notice is sticky.
-
-// Error notice methods
-
-- (void)showErrorNoticeInView:(UIView *)view
-                        title:(NSString *)title
-                      message:(NSString *)message;
-
-- (void)showErrorNoticeInView:(UIView *)view
-                        title:(NSString *)title
-                      message:(NSString *)message
-                     duration:(float)duration
-                        delay:(float)delay
-                        alpha:(float)alpha;
-
-- (void)showErrorNoticeInView:(UIView *)view
-                        title:(NSString *)title
-                      message:(NSString *)message
-                     duration:(float)duration
-                        delay:(float)delay
-                        alpha:(float)alpha
-                      yOrigin:(CGFloat)origin;
-
-// Success notice methods
-
-- (void)showSuccessNoticeInView:(UIView *)view
-                        message:(NSString *)message;
-
-- (void)showSuccessNoticeInView:(UIView *)view
-                        message:(NSString *)message
-                       duration:(float)duration
-                          delay:(float)delay
-                          alpha:(float)alpha
-                        yOrigin:(CGFloat)origin;
-
-// Sticky notice methods
-
-- (void)showStickyNoticeInView:(UIView *)view
+// throws NSInvalidArgumentException is view is nil.
++ (WBNoticeView *)noticeOfType:(WBNoticeType)noticeType
+                        inView:(UIView *)view
+                         title:(NSString *)title
                        message:(NSString *)message
-                      duration:(float)duration
-                         alpha:(float)alpha
-                       yOrigin:(CGFloat)origin;
+                      duration:(NSTimeInterval)duration
+                dismissedBlock:(WBNoticeViewDismissedBlock)dismissedBlock;
+
+// throws NSInvalidArgumentException is view is nil.
++ (WBNoticeView *)noticeOfType:(WBNoticeType)noticeType
+                        inView:(UIView *)view
+                         title:(NSString *)title
+                       message:(NSString *)message
+                      duration:(NSTimeInterval)duration
+                         delay:(NSTimeInterval)delay
+                         alpha:(CGFloat)alpha
+                       originY:(CGFloat)originY
+                dismissedBlock:(WBNoticeViewDismissedBlock)dismissedBlock;
+
+- (void)show;
+- (void)dismiss;
 
 @end

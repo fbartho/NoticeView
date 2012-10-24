@@ -27,9 +27,6 @@
 
 #import "WBViewController.h"
 #import "WBNoticeView.h"
-#import "WBErrorNoticeView.h"
-#import "WBSuccessNoticeView.h"
-#import "WBStickyNoticeView.h"
 
 @interface WBViewController ()
 @property (nonatomic, readwrite, weak) WBNoticeView *currentNoticeView;
@@ -66,37 +63,35 @@
 
 - (IBAction)showSmallErrorNotice:(id)sender
 {
-    WBErrorNoticeView *notice = [WBErrorNoticeView errorNoticeInView:self.view title:@"Network Error" message:@"Check your network connection."];
+    WBNoticeView *notice = [WBNoticeView noticeOfType:WBNoticeTypeError inView:self.view title:@"Network Error" message:@"Check your network connection." duration:0.5f dismissedBlock:nil];
     [notice show];
 }
 
 - (IBAction)showLargeErrorNotice:(id)sender
 {
-    WBErrorNoticeView *notice = [WBErrorNoticeView errorNoticeInView:self.view title:@"Network Error" message:@"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."];
-    notice.dismissedBlock = ^{
+    WBNoticeView *notice = [WBNoticeView noticeOfType:WBNoticeTypeError inView:self.view title:@"Network Error" message:@"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." duration:0.5f dismissedBlock:^(BOOL userDismissed) {
         NSLog(@"showLargeErrorNotice dismissed!");
-    };
+    }];
     [notice show];
 }
 
 - (IBAction)showSmallSuccessNotice:(id)sender
 {
-    WBSuccessNoticeView *notice = [WBSuccessNoticeView successNoticeInView:self.view title:@"Link Saved Successfully"];
+    WBNoticeView *notice = [WBNoticeView noticeOfType:WBNoticeTypeSuccess inView:self.view title:@"Link Saved Successfully" message:nil duration:0.5f dismissedBlock:nil];
     [notice show];
 }
 
 - (IBAction)showSmallStickyNotice:(id)sender
 {
-    WBStickyNoticeView *notice = [WBStickyNoticeView stickyNoticeInView:self.view title:@"7 New Tweets."];
-    notice.dismissedBlock = ^{
+    WBNoticeView *notice = [WBNoticeView noticeOfType:WBNoticeTypeSticky inView:self.view title:@"7 New Tweets." message:nil duration:0.5f dismissedBlock:^(BOOL userDismissed) {
         NSLog(@"showSmallStickyNotice dismissed!");
-    };
+    }];
     [notice show];
 }
 
 - (IBAction)showSmallErrorNoticeBelow:(id)sender
 {
-    WBErrorNoticeView *notice = [WBErrorNoticeView errorNoticeInView:self.view title:@"Network Error" message:@"Check your network connection."];
+    WBNoticeView *notice = [WBNoticeView noticeOfType:WBNoticeTypeError inView:self.view title:@"Network Error" message:@"Check your network connection." duration:0.5f dismissedBlock:nil];
     
     notice.alpha = 0.8;
     notice.originY = self.headerView.frame.size.height;
@@ -106,7 +101,7 @@
 
 - (IBAction)showLargeErrorNoticeBelow:(id)sender
 {
-    WBErrorNoticeView *notice = [WBErrorNoticeView errorNoticeInView:self.view title:@"Network Error" message:@"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."];
+    WBNoticeView *notice = [WBNoticeView noticeOfType:WBNoticeTypeError inView:self.view title:@"Network Error" message:@"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." duration:0.5f dismissedBlock:nil];
     
     notice.alpha = 0.8;
     notice.originY = self.headerView.frame.size.height;
@@ -116,7 +111,7 @@
 
 - (IBAction)showSmallSuccessNoticeBelow:(id)sender
 {
-    WBSuccessNoticeView *notice = [WBSuccessNoticeView successNoticeInView:self.view title:@"Link Saved Successfully"];
+    WBNoticeView *notice = [WBNoticeView noticeOfType:WBNoticeTypeSuccess inView:self.view title:@"Link Saved Successfully" message:nil duration:0.5f dismissedBlock:nil];
     
     notice.alpha = 0.8;
     notice.originY = self.headerView.frame.size.height;
@@ -126,7 +121,7 @@
 
 - (IBAction)showSmallStickyNoticeBelow:(id)sender
 {
-    WBStickyNoticeView *notice = [WBStickyNoticeView stickyNoticeInView:self.view title:@"7 New Tweets arrived somewhere from the intertubes."];
+    WBNoticeView *notice = [WBNoticeView noticeOfType:WBNoticeTypeSticky inView:self.view title:@"7 New Tweets arrived somewhere from the intertubes." message:nil duration:0.5f dismissedBlock:nil];
     
     notice.originY = self.headerView.frame.size.height;
 
@@ -135,7 +130,7 @@
 
 - (IBAction)showSmallErrorNoticeAndPush:(id)sender
 {
-    WBErrorNoticeView *notice = [WBErrorNoticeView errorNoticeInView:self.view title:@"Network Error" message:@"Check your network connection."];
+    WBNoticeView *notice = [WBNoticeView noticeOfType:WBNoticeTypeError inView:self.view title:@"Network Error" message:@"Check your network connection." duration:0.5f dismissedBlock:nil];
     [notice show];
     
     [self.navigationController pushViewController: [[WBViewController alloc] init] animated:YES];
@@ -143,7 +138,7 @@
 
 - (IBAction)showStickyNoticeAndPush:(id)sender
 {
-    WBStickyNoticeView *notice = [WBStickyNoticeView stickyNoticeInView:self.view title:@"7 New Tweets arrived somewhere from the intertubes."];
+    WBNoticeView *notice = [WBNoticeView noticeOfType:WBNoticeTypeSticky inView:self.view title:@"7 New Tweets arrived somewhere from the intertubes." message:nil duration:0.5f dismissedBlock:nil];
     [notice show];
     
     [self.navigationController pushViewController: [[WBViewController alloc] init] animated:YES];
@@ -151,8 +146,8 @@
 
 - (IBAction)showStickyError:(id)sender
 {
-    if (nil == self.currentNoticeView) {
-        WBErrorNoticeView *notice = [WBErrorNoticeView errorNoticeInView:self.view title:@"Network Error" message:@"Check your network connection."];
+    if (!self.currentNoticeView) {
+        WBNoticeView *notice = [WBNoticeView noticeOfType:WBNoticeTypeError inView:self.view title:@"Network Error" message:@"Check your network connection." duration:0.5f dismissedBlock:nil];
         notice.sticky = YES;
         [notice show];
         self.currentNoticeView = notice;
@@ -161,7 +156,7 @@
 
 - (IBAction)showStickyErrorNoticeAndPush:(id)sender
 {
-    WBErrorNoticeView *notice = [WBErrorNoticeView errorNoticeInView:self.view title:@"Network Error" message:@"Check your network connection."];
+    WBNoticeView *notice = [WBNoticeView noticeOfType:WBNoticeTypeError inView:self.view title:@"Network Error" message:@"Check your network connection." duration:0.5f dismissedBlock:nil];
     notice.sticky = YES;
     [notice show];
     
@@ -172,7 +167,7 @@
 
 - (IBAction)dismissStickyNotice:(id)sender
 {
-    [self.currentNoticeView dismissNotice];
+    [self.currentNoticeView dismiss];
 }
 
 @end
