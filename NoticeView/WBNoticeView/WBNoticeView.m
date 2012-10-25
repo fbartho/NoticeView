@@ -157,19 +157,19 @@ static NSTimeInterval const kDefaultAnimationDurration = 0.2f;
         NSString *noticeIconImageName = [path stringByAppendingPathComponent:self.noticeIconImageName];
         
         // Make and add the title label
-        float titleYOrigin = 10.0;
+        CGFloat titleYOrigin = 10.0f;
         
-        self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(55.0, titleYOrigin, viewWidth - 70.0, 16.0)];
+        self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(55.0f, titleYOrigin, viewWidth - 70.0f, 16.0f)];
         self.titleLabel.textColor = [UIColor whiteColor];
-        self.titleLabel.shadowOffset = CGSizeMake(0.0, -1.0);
+        self.titleLabel.shadowOffset = CGSizeMake(0.0f, -1.0f);
         self.titleLabel.shadowColor = [UIColor blackColor];
-        self.titleLabel.font = [UIFont boldSystemFontOfSize:14.0];
+        self.titleLabel.font = [UIFont boldSystemFontOfSize:14.0f];
         self.titleLabel.backgroundColor = [UIColor clearColor];
         self.titleLabel.text = title;
         
         // Make the message label
-        self.messageLabel = [[UILabel alloc]initWithFrame:CGRectMake(55.0, 20.0 + 10.0, viewWidth - 70.0, 12.0)];
-        self.messageLabel.font = [UIFont systemFontOfSize:13.0];
+        self.messageLabel = [[UILabel alloc]initWithFrame:CGRectMake(55.0f, 20.0f + 10.0f, viewWidth - 70.0f, 12.0f)];
+        self.messageLabel.font = [UIFont systemFontOfSize:13.0f];
         self.messageLabel.textColor = self.messageColor;
         self.messageLabel.backgroundColor = [UIColor clearColor];
         self.messageLabel.text = message;
@@ -183,38 +183,38 @@ static NSTimeInterval const kDefaultAnimationDurration = 0.2f;
         CGRect r = self.messageLabel.frame;
         r.origin.y = self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height;
         
-        float noticeViewHeight = 0.0;
+        CGFloat noticeViewHeight = 0.0f;
         double currOsVersion = [[[UIDevice currentDevice]systemVersion]doubleValue];
         if (currOsVersion >= 6.0f) {
             noticeViewHeight = messageLabelHeight;
         } else {
             // Now we can determine the height of one line of text
             r.size.height = self.messageLabel.frame.size.height * numberOfLines;
-            r.size.width = viewWidth - 70.0;
+            r.size.width = viewWidth - 70.0f;
             self.messageLabel.frame = r;
             
             // Calculate the notice view height
-            noticeViewHeight = 10.0;
+            noticeViewHeight = 10.0f;
             if (numberOfLines > 1) {
                 noticeViewHeight += ((numberOfLines - 1) * messageLabelHeight);
             }
         }
         
         // Add some bottom margin for the notice view
-        noticeViewHeight += 30.0;
+        noticeViewHeight += 30.0f;
         
         // Make sure we hide completely the view, including its shadow
-        float hiddenYOrigin = -noticeViewHeight - 20.0;
+        CGFloat hiddenYOrigin = -noticeViewHeight - 20.0;
         
         // Make and add the notice view
-        self.gradientView = [[self.gradientViewClass alloc]initWithFrame:CGRectMake(0.0, hiddenYOrigin, viewWidth, noticeViewHeight + 10.0)];
+        self.gradientView = [[self.gradientViewClass alloc]initWithFrame:CGRectMake(0.0f, hiddenYOrigin, viewWidth, noticeViewHeight + 10.0f)];
         [self.view addSubview:self.gradientView];
         
         // Make and add the icon view
-        UIImageView *iconView = [[UIImageView alloc]initWithFrame:CGRectMake(10.0, 10.0, 20.0, 30.0)];
+        UIImageView *iconView = [[UIImageView alloc]initWithFrame:CGRectMake(10.0f, 10.0f, 20.0f, 30.0f)];
         iconView.image = [UIImage imageWithContentsOfFile:noticeIconImageName];
         iconView.contentMode = UIViewContentModeScaleAspectFit;
-        iconView.alpha = 0.8;
+        iconView.alpha = 0.8f;
         [self.gradientView addSubview:iconView];
         
         // Add the title label
@@ -226,10 +226,11 @@ static NSTimeInterval const kDefaultAnimationDurration = 0.2f;
         // Add the drop shadow to the notice view
         CALayer *noticeLayer = self.gradientView.layer;
         noticeLayer.shadowColor = [[UIColor blackColor]CGColor];
-        noticeLayer.shadowOffset = CGSizeMake(0.0, 3);
-        noticeLayer.shadowOpacity = 0.50;
-        noticeLayer.masksToBounds = NO;
+        noticeLayer.shadowOffset = CGSizeMake(0.0f, 3.0f);
+        noticeLayer.shadowOpacity = 0.50f;
+        noticeLayer.shadowPath = [UIBezierPath bezierPathWithRect:noticeLayer.bounds].CGPath;
         noticeLayer.shouldRasterize = YES;
+        noticeLayer.rasterizationScale = [[UIScreen mainScreen] scale];
         
         self.duration = duration;
         self.delay = delay;
