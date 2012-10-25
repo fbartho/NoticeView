@@ -16,10 +16,9 @@
     {
         self.backgroundColor = [UIColor clearColor];
         
-        UIView *background = [[UIView alloc] initWithFrame:self.bounds];
-        background.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [self addSubview:background];
-        self.backgroundView = background;
+        self.backgroundView = [[UIView alloc] initWithFrame:self.bounds];
+        self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [self addSubview:self.backgroundView];
     }
     
     return self;

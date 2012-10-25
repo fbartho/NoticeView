@@ -10,7 +10,7 @@
 
 @interface WBGradientView : UIView
 
-@property (nonatomic,weak) UIView *backgroundView;
-@property (nonatomic,weak) CAGradientLayer *gradientLayer;
+@property (nonatomic,strong) UIView *backgroundView;
+@property (nonatomic,strong) CAGradientLayer *gradientLayer;
 
 @end
