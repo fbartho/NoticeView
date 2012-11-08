@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0873FFFF164C5C1E002323AA /* WBGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0873FFFE164C5C1E002323AA /* WBGradientView.m */; };
 		592BDDE915645BEE00B78820 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 592BDDE115645BEE00B78820 /* Default.png */; };
 		592BDDEA15645BEE00B78820 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 592BDDE215645BEE00B78820 /* Default@2x.png */; };
 		592BDDEB15645BEE00B78820 /* NoticeView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 592BDDE415645BEE00B78820 /* NoticeView.bundle */; };
@@ -28,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0873FFFD164C5C1D002323AA /* WBGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBGradientView.h; sourceTree = "<group>"; };
+		0873FFFE164C5C1E002323AA /* WBGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBGradientView.m; sourceTree = "<group>"; };
 		592BDDE115645BEE00B78820 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		592BDDE215645BEE00B78820 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		592BDDE415645BEE00B78820 /* NoticeView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NoticeView.bundle; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 				592BDDE615645BEE00B78820 /* UILabel+WBExtensions.m */,
 				7492FA41157C8CD700FB834C /* WBBlueGradientView.h */,
 				7492FA42157C8CD700FB834C /* WBBlueGradientView.m */,
+				0873FFFD164C5C1D002323AA /* WBGradientView.h */,
+				0873FFFE164C5C1E002323AA /* WBGradientView.m */,
 				748A6A57157D0B74003C7655 /* WBGrayGradientView.h */,
 				748A6A58157D0B74003C7655 /* WBGrayGradientView.m */,
 				7492FA43157C8CD700FB834C /* WBRedGradientView.h */,
@@ -239,6 +244,7 @@
 				7492FA45157C8CD700FB834C /* WBBlueGradientView.m in Sources */,
 				7492FA46157C8CD700FB834C /* WBRedGradientView.m in Sources */,
 				748A6A59157D0B74003C7655 /* WBGrayGradientView.m in Sources */,
+				0873FFFF164C5C1E002323AA /* WBGradientView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
