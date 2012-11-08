@@ -23,15 +23,15 @@ If you're using [CocoPods](http://cocopods.org) it's as simple as:
 
 * `WBNoticeTypeError`
 
-![Displays a red notification with alert icon](https://github.com/levigroker/NoticeView/tree/master/Screenshots/WBNoticeTypeError.png "Displays a red notification with alert icon")
+![Displays a red notification with alert icon](https://github.com/levigroker/NoticeView/blob/master/Screenshots/WBNoticeTypeError.png?raw=true "Displays a red notification with alert icon")
 
 * `WBNoticeTypeSuccess`
 
-![Displays a red notification with alert icon](https://github.com/levigroker/NoticeView/tree/master/Screenshots/WBNoticeTypeSuccess.png "Displays a blue notification with checkmark icon")
+![Displays a red notification with alert icon](https://github.com/levigroker/NoticeView/blob/master/Screenshots/WBNoticeTypeSuccess.png?raw=true "Displays a blue notification with checkmark icon")
 
 * `WBNoticeTypeSticky`
 
-![Displays a grey notification with up arrow icon](https://github.com/levigroker/NoticeView/tree/master/Screenshots/WBNoticeTypeSticky.png "Displays a grey notification")
+![Displays a grey notification with up arrow icon](https://github.com/levigroker/NoticeView/blob/master/Screenshots/WBNoticeTypeSticky.png?raw=true "Displays a grey notification")
 
 #### Examples
 
