@@ -31,7 +31,7 @@ If you're using [CocoPods](http://cocopods.org) it's as simple as:
 
 * `WBNoticeTypeSticky`
 
-![Displays a grey notification with up arrow icon](https://github.com/levigroker/NoticeView/blob/master/Screenshots/WBNoticeTypeSticky.png?raw=true "Displays a grey notification")
+![Displays a grey notification with up arrow icon](https://github.com/levigroker/NoticeView/blob/master/Screenshots/WBNoticeTypeSticky.png?raw=true "Displays a grey notification with up arrow icon")
 
 #### Examples
 
