@@ -1,6 +1,6 @@
 NoticeView
 ==========
-A visual component to present a non-invasive notification to the user.
+A visual component to present a dynamically sized, non-invasive notification to the user.
 
 Based off of [tciuro/NoticeView](https://github.com/tciuro/NoticeView)
 
