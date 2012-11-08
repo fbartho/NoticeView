@@ -1,12 +1,12 @@
 NoticeView
 ==========
-A visual component to present a dynamically sized, non-invasive notification to the user.
+A visual component for iOS to present a dynamically sized, non-invasive notification to the user.
 
 Based off of [tciuro/NoticeView](https://github.com/tciuro/NoticeView)
 
 ### Installing
 
-If you're using [CocoPods](http://cocopods.org) it's as simple as:
+If you're using [CocoPods](http://cocopods.org) it's as simple as adding this to your `Podfile`:
 
 	pod 'NoticeView', :git => 'https://github.com/levigroker/NoticeView.git'
 
