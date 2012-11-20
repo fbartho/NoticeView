@@ -34,6 +34,7 @@
 - (IBAction)showSmallErrorNotice:(id)sender;
 - (IBAction)showLargeErrorNotice:(id)sender;
 - (IBAction)showSmallSuccessNotice:(id)sender;
+- (IBAction)showLargeSuccessNotice:(id)sender;
 - (IBAction)showSmallErrorNoticeBelow:(id)sender;
 - (IBAction)showLargeErrorNoticeBelow:(id)sender;
 - (IBAction)showSmallSuccessNoticeBelow:(id)sender;

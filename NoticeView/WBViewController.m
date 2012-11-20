@@ -72,12 +72,22 @@
     WBNoticeView *notice = [WBNoticeView noticeOfType:WBNoticeTypeError inView:self.view title:@"Network Error" message:@"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." duration:0.5f dismissedBlock:^(BOOL userDismissed) {
         NSLog(@"showLargeErrorNotice dismissed!");
     }];
+	notice.messageLengthDelayMultiple = 2.0f;
     [notice show];
 }
 
 - (IBAction)showSmallSuccessNotice:(id)sender
 {
     WBNoticeView *notice = [WBNoticeView noticeOfType:WBNoticeTypeSuccess inView:self.view title:@"Link Saved Successfully" message:nil duration:0.5f dismissedBlock:nil];
+    [notice show];
+}
+
+- (IBAction)showLargeSuccessNotice:(id)sender
+{
+    WBNoticeView *notice = [WBNoticeView noticeOfType:WBNoticeTypeSuccess inView:self.view title:@"#win" message:@"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." duration:0.5f dismissedBlock:^(BOOL userDismissed) {
+        NSLog(@"showLargeSuccessNotice dismissed!");
+    }];
+	notice.messageLengthDelayMultiple = 0.5f;
     [notice show];
 }
 
