@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0873FFFF164C5C1E002323AA /* WBGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0873FFFE164C5C1E002323AA /* WBGradientView.m */; };
+		2E5B2B6B165B7AD700B175C6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5B2B6A165B7AD700B175C6 /* Default-568h@2x.png */; };
 		592BDDE915645BEE00B78820 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 592BDDE115645BEE00B78820 /* Default.png */; };
 		592BDDEA15645BEE00B78820 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 592BDDE215645BEE00B78820 /* Default@2x.png */; };
 		592BDDEB15645BEE00B78820 /* NoticeView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 592BDDE415645BEE00B78820 /* NoticeView.bundle */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		0873FFFD164C5C1D002323AA /* WBGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBGradientView.h; sourceTree = "<group>"; };
 		0873FFFE164C5C1E002323AA /* WBGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBGradientView.m; sourceTree = "<group>"; };
+		2E5B2B6A165B7AD700B175C6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		592BDDE115645BEE00B78820 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		592BDDE215645BEE00B78820 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		592BDDE415645BEE00B78820 /* NoticeView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NoticeView.bundle; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				595FE868156F021E004C505B /* navigationBar.png */,
 				592BDDE115645BEE00B78820 /* Default.png */,
 				592BDDE215645BEE00B78820 /* Default@2x.png */,
+				2E5B2B6A165B7AD700B175C6 /* Default-568h@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				592BDDEA15645BEE00B78820 /* Default@2x.png in Resources */,
 				592BDDEB15645BEE00B78820 /* NoticeView.bundle in Resources */,
 				595FE869156F021E004C505B /* navigationBar.png in Resources */,
+				2E5B2B6B165B7AD700B175C6 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
