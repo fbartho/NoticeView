@@ -45,8 +45,10 @@ typedef void (^WBNoticeViewDismissedBlock)(BOOL userDismissed);
 @property (nonatomic,copy) NSString *message; // default: @""
 @property (nonatomic,strong) UIImage *iconImage;
 
-@property (nonatomic,assign) CGFloat duration; // default: 0.5
 @property (nonatomic,assign) CGFloat delay; // default: 2.0
+@property (nonatomic,assign) CGFloat messageLengthDelayMultiple; // default: 0.0 - For each additional line in the message, add this multiple of the delay
+
+@property (nonatomic,assign) CGFloat duration; // default: 0.5
 @property (nonatomic,assign) CGFloat alpha; // default: 1.0
 @property (nonatomic,assign) CGFloat originY; // default: 0.0
 @property (nonatomic,assign) BOOL sticky; // default NO (Error and Success notice); YES (Sticky notice)

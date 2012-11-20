@@ -307,7 +307,8 @@ static NSMutableSet *_notices = nil;
         // if it's not sticky, hide it automatically
         if (NO == self.sticky) {
             // Display for a while, then hide it again
-            [self dismissNoticeWithDuration:duration delay:delay hiddenYOrigin:hiddenYOrigin userInitiated:NO];
+			NSTimeInterval timeToRead = delay + delay * ((self.messageLabel.numberOfLines - 1) * _messageLengthDelayMultiple);
+            [self dismissNoticeWithDuration:duration delay:timeToRead hiddenYOrigin:hiddenYOrigin userInitiated:NO];
         }
     }];
 }
