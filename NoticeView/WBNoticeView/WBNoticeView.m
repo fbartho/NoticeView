@@ -34,7 +34,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-static NSTimeInterval const kDefaultAnimationDurration = 0.2f;
+static NSTimeInterval const kDefaultAnimationDuration = 0.2f;
 
 @interface WBNoticeView ()
 
@@ -144,7 +144,7 @@ static NSTimeInterval const kDefaultAnimationDurration = 0.2f;
         // Set default values if needed
         NSString *title = self.title ?: @"";
         NSString *message = self.message ?: @"";
-        NSTimeInterval duration = self.duration == 0.0f ? kDefaultAnimationDurration : self.duration;
+        NSTimeInterval duration = self.duration == 0.0f ? kDefaultAnimationDuration : self.duration;
         CGFloat alpha = self.alpha == 0.0f ? 0.8 : self.alpha;
         CGFloat originY = self.originY < 0.0f ? 0.0 : self.originY;
         NSTimeInterval delay = self.sticky ? 0.0f : self.delay == 0.0f ? 2.0f : self.delay;
