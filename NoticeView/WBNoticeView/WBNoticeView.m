@@ -270,12 +270,19 @@ static NSMutableSet *_notices = nil;
 
 - (void)displayNoticeWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay originY:(CGFloat)originY hiddenYOrigin:(CGFloat)hiddenYOrigin alpha:(CGFloat)alpha
 {
+	
+    // Setup accessiblity on the gradient view
+    NSString *accessibilityLabel = ([self.messageLabel.text length]) ? [NSString stringWithFormat:@"%@, %@", [self.titleLabel text], [self.messageLabel text]] : [self.titleLabel text];
+    self.gradientView.accessibilityTraits = (self.sticky || self.dismissedBlock) ? (UIAccessibilityTraitStaticText | UIAccessibilityTraitButton) : UIAccessibilityTraitStaticText;
+    self.gradientView.accessibilityLabel = accessibilityLabel;
+	
     // If the notice is sticky, add tap capabilities
     if (self.sticky) {
         [self addNotice:self];
         // Add an invisible button that responds to a manual dismiss
         CGRect frame = self.gradientView.frame;
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+		button.accessibilityLabel = accessibilityLabel;
         frame.origin.x = frame.origin.y = 0.0;
         button.frame = frame;
         [button addTarget:self action:@selector(dismissNotice) forControlEvents:UIControlEventTouchUpInside];
