@@ -73,7 +73,7 @@ static NSTimeInterval const kDefaultAnimationDurration = 0.2f;
 					   originY:(CGFloat)originY
 				dismissedBlock:(WBNoticeViewDismissedBlock)dismissedBlock
 {
-    WBNoticeView *retVal = [[WBNoticeView alloc] initWithView:view];
+    WBNoticeView *retVal = [[self alloc] initWithView:view];
     
     retVal.title = title;
     retVal.message = message;
