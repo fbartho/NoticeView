@@ -65,13 +65,13 @@ static NSTimeInterval const kDefaultAnimationDurration = 0.2f;
 }
 
 + (WBNoticeView *)noticeOfType:(WBNoticeType)noticeType
-                    inView:(UIView *)view
-                   title:(NSString *)title
-                 message:(NSString *)message
-                duration:(NSTimeInterval)duration
-                   alpha:(CGFloat)alpha
-                 originY:(CGFloat)originY
-                dismissedBlock:(WBNoticeViewDismissedBlock)dismissedBlock
+						inView:(UIView *)view
+						 title:(NSString *)title
+					   message:(NSString *)message
+					  duration:(NSTimeInterval)duration
+						 alpha:(CGFloat)alpha
+					   originY:(CGFloat)originY
+				dismissedBlock:(WBNoticeViewDismissedBlock)dismissedBlock
 {
     WBNoticeView *retVal = [[WBNoticeView alloc] initWithView:view];
     
