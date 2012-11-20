@@ -2,7 +2,7 @@ NoticeView
 ==========
 A visual component for iOS to present a dynamically sized, non-invasive notification to the user.
 
-Based off of [tciuro/NoticeView](https://github.com/tciuro/NoticeView)
+Based off of [tciuro/NoticeView](https://github.com/tciuro/NoticeView) and [levigroker/NoticeView](https://github.com/levigroker/NoticeView)
 
 ### Installing
 
