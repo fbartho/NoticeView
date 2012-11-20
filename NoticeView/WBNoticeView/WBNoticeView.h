@@ -43,6 +43,7 @@ typedef void (^WBNoticeViewDismissedBlock)(BOOL userDismissed);
 @property (nonatomic,strong) UIView *view;
 @property (nonatomic,copy) NSString *title; // default: @""
 @property (nonatomic,copy) NSString *message; // default: @""
+@property (nonatomic,strong) UIImage *iconImage;
 
 @property (nonatomic,assign) CGFloat duration; // default: 0.5
 @property (nonatomic,assign) CGFloat delay; // default: 2.0

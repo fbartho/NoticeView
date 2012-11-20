@@ -86,19 +86,19 @@ static NSTimeInterval const kDefaultAnimationDurration = 0.2f;
     switch (noticeType) {
         case WBNoticeTypeError:
             retVal.sticky = NO;
-            retVal.noticeIconImageName = @"notice_error_icon.png";
+            retVal.noticeIconImageName = @"notice_error_icon";
             retVal.gradientViewClass = WBRedGradientView.class;
             retVal.messageColor = [UIColor colorWithRed:239.0/255.0 green:167.0/255.0 blue:163.0/255.0 alpha:1.0];
             break;
         case WBNoticeTypeSuccess:
             retVal.sticky = NO;
-            retVal.noticeIconImageName = @"notice_success_icon.png";
+            retVal.noticeIconImageName = @"notice_success_icon";
             retVal.gradientViewClass = WBBlueGradientView.class;
             retVal.messageColor = [UIColor whiteColor];
             break;
         case WBNoticeTypeSticky:
             retVal.sticky = YES;
-            retVal.noticeIconImageName = @"up.png";
+            retVal.noticeIconImageName = @"up";
             retVal.gradientViewClass = WBGrayGradientView.class;
             retVal.messageColor = [UIColor whiteColor];
             break;
@@ -151,10 +151,6 @@ static NSTimeInterval const kDefaultAnimationDurration = 0.2f;
 
         // Obtain the screen width
         CGFloat viewWidth = self.view.frame.size.width;
-        
-        // Locate the images
-        NSString *path = [[[NSBundle mainBundle]resourcePath]stringByAppendingPathComponent:@"NoticeView.bundle"];
-        NSString *noticeIconImageName = [path stringByAppendingPathComponent:self.noticeIconImageName];
         
         // Make and add the title label
         CGFloat titleYOrigin = 10.0f;
@@ -212,7 +208,7 @@ static NSTimeInterval const kDefaultAnimationDurration = 0.2f;
         
         // Make and add the icon view
         UIImageView *iconView = [[UIImageView alloc]initWithFrame:CGRectMake(10.0f, 10.0f, 20.0f, 30.0f)];
-        iconView.image = [UIImage imageWithContentsOfFile:noticeIconImageName];
+        iconView.image = self.iconImage;
         iconView.contentMode = UIViewContentModeScaleAspectFit;
         iconView.alpha = 0.8f;
         [self.gradientView addSubview:iconView];
@@ -247,6 +243,19 @@ static NSTimeInterval const kDefaultAnimationDurration = 0.2f;
 }
 
 #pragma mark - Internals
+
+@synthesize iconImage;
+- (UIImage*)iconImage
+{
+	if (!iconImage){
+		// Locate the images
+		NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"NoticeView.bundle"];
+		NSString *noticeIconImageName = [NSString stringWithFormat: @"%@.png",[path stringByAppendingPathComponent:self.noticeIconImageName]];
+		return [UIImage imageWithContentsOfFile: noticeIconImageName];
+	} else {
+		return iconImage;
+	}
+}
 
 static NSMutableSet *_notices = nil;
 
