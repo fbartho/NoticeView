@@ -244,16 +244,15 @@ static NSTimeInterval const kDefaultAnimationDuration = 0.2f;
 
 #pragma mark - Internals
 
-@synthesize iconImage;
 - (UIImage*)iconImage
 {
-	if (!iconImage){
+	if (!_iconImage){
 		// Locate the images
 		NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"NoticeView.bundle"];
 		NSString *noticeIconImageName = [NSString stringWithFormat: @"%@.png",[path stringByAppendingPathComponent:self.noticeIconImageName]];
 		return [UIImage imageWithContentsOfFile: noticeIconImageName];
 	} else {
-		return iconImage;
+		return _iconImage;
 	}
 }
 
